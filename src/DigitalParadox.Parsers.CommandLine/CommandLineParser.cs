@@ -1,0 +1,17 @@
+﻿
+namespace DigitalParadox.Parsers.CommandLine
+{
+    public class CommandLineParser : ICommandLineParser
+    {
+        private readonly IVerbResolver _resolver;
+
+        public CommandLineParser(IVerbResolver resolver)
+        {
+            _resolver = resolver;
+        }
+        public HandlebarsCli.Interfaces.IVerbDefinition Parse(IEnumerable<string> args)
+        {
+            return _resolver.Resolve(args);
+        }
+    }
+}

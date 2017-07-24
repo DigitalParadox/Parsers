@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Chris McGrath</Authors>
+    <Company>Digital Paradox</Company>
+    <Description>Provides Serialization And Deserialization for digital paradox applications</Description>
+    <PackageProjectUrl>https://github.com/DigitalParadox/Parsers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DigitalParadox/Parsers</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpYaml.NetStandard" Version="1.5.4" />
+    <PackageReference Include="Unity" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalParadox.Parsers\DigitalParadox.Parsers.csproj" />
+  </ItemGroup>
+
+</Project>

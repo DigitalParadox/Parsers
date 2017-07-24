@@ -7,7 +7,7 @@ using SharpYaml.Serialization;
 
 namespace DigitalParadox.Parsers.Yaml
 {
-    public class SharpYamlParser : IYamlParser
+    public class SharpYamlParser : ISerializer, IDeserializer, IYamlParser
     {
         private readonly Serializer _serializer;
 
@@ -33,12 +33,5 @@ namespace DigitalParadox.Parsers.Yaml
             var obj = _serializer.Deserialize(yaml);
             return obj;
         }
-    }
-
-    public interface IYamlParser
-    {
-        string Serialize(object data);
-        T Deserialize<T>(string yaml);
-        object Deserialize(string yaml);
     }
 }
