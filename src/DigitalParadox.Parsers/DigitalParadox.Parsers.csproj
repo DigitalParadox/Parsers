@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Chris McGrath</Authors>
+    <Company>Digital Paradox</Company>
+    <Description>Base Interfaces for Parser Libraries</Description>
   </PropertyGroup>
 
 </Project>
