@@ -1,6 +1,6 @@
 ﻿namespace DigitalParadox.Parsers.Yaml
 {
-    internal interface IYamlParser : IDeserializer, ISerializer
+    public interface IYamlParser : IDeserializer, ISerializer
     {
 
     }
