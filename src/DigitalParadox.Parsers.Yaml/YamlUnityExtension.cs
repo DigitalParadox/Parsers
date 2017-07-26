@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using DigitalParadox.Parsers.Serializers;
 using SharpYaml.Serialization;
 using Microsoft.Practices.Unity;
 
@@ -8,8 +9,6 @@ namespace DigitalParadox.Parsers.Yaml
     {
         protected override void Initialize()
         {
-
-
             Container.RegisterInstance<IObjectFactory>(new LambdaObjectFactory(
                 type =>
                 {

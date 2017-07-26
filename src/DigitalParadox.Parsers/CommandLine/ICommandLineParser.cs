@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-namespace DigitalParadox.Parsers
+
+namespace DigitalParadox.Parsers.CommandLine
 {
     public interface ICommandLineParser
     {

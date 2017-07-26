@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace DigitalParadox.HandlebarsCli.Services.HandlebarsTemplateProcessor
+namespace DigitalParadox.Parsers.Json.Converters
 {
     public class FileSystemInfoConverter<TFileSystemInfo> : JsonConverter where TFileSystemInfo : FileSystemInfo
     {

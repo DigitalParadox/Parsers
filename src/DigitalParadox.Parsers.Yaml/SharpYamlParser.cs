@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DigitalParadox.Parsers.Serializers;
 using SharpYaml.Serialization;
 
 namespace DigitalParadox.Parsers.Yaml
 {
-    public class SharpYamlParser : ISerializer, IDeserializer, IYamlParser
+    public class SharpYamlParser : IYamlParser
     {
         private readonly Serializer _serializer;
 

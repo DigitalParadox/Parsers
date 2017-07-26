@@ -1,4 +1,4 @@
-﻿namespace DigitalParadox.Parsers
+﻿namespace DigitalParadox.Parsers.Serializers
 {
     public interface ISerializer
     {
