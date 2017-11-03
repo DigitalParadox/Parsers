@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using DigitalParadox.Parsers.Serializers;
 using SharpYaml.Serialization;
-using Microsoft.Practices.Unity;
+using Unity;
+using Unity.Extension;
 
 namespace DigitalParadox.Parsers.Yaml
 {

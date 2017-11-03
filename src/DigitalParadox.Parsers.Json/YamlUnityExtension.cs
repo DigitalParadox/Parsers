@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using DigitalParadox.Parsers.Serializers;
-using Microsoft.Practices.Unity;
+using Unity.Extension;
+using Unity;
+
 
 namespace DigitalParadox.Parsers.Json
 {
