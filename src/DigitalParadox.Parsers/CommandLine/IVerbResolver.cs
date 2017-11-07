@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DigitalParadox.Parsers.CommandLine
+namespace DigitalParadox.Parsers
 {
     public interface IVerbResolver
     {

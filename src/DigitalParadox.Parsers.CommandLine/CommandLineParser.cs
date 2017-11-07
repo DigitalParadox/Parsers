@@ -1,4 +1,6 @@
-﻿
+﻿using System.Collections.Generic;
+using DigitalParadox.Parsers;
+
 namespace DigitalParadox.Parsers.CommandLine
 {
     public class CommandLineParser : ICommandLineParser
@@ -9,9 +11,12 @@ namespace DigitalParadox.Parsers.CommandLine
         {
             _resolver = resolver;
         }
-        public HandlebarsCli.Interfaces.IVerbDefinition Parse(IEnumerable<string> args)
+
+
+        public IVerbDefinition Parse(IEnumerable<string> args)
         {
             return _resolver.Resolve(args);
+            
         }
     }
 }

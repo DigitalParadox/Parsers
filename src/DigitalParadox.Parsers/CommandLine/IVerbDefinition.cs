@@ -1,5 +1,5 @@
 ﻿
-namespace DigitalParadox.Parsers.CommandLine
+namespace DigitalParadox.Parsers
 {
     public interface IVerbDefinition 
     {
