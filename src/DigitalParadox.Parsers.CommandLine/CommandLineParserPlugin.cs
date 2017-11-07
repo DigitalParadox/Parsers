@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using CommandLine;
-using CommandLine.Infrastructure;
-using DigitalParadox.HandlebarsCli;
-using DigitalParadox.HandlebarsCli.Interfaces;
-using DigitalParadox.HandlebarsCli.Plugins;
-using Microsoft.Practices.ObjectBuilder2;
-using Microsoft.Practices.Unity;
+using DigitalParadox.Utilities.AssemblyLoader;
+using Parsers.CommandLine;
+using Unity;
+using Unity.Extension;
+using Unity.Injection;
+using Unity.Lifetime;
 
-namespace DigitalParadox.Parsing.CommandLineParser
+namespace DigitalParadox.Parsers.CommandLine
 {
-    public class CommandLineParserPlugin : UnityContainerExtension
+
+
+    
+    public  class CommandLineParserPlugin : UnityContainerExtension
     {
         protected override void Initialize()
         {
 
-            var verbs = AssemblyLoader.GetAssemblies<IVerbDefinition>()
-                .GetTypes<IVerbDefinition>().Where(q => !q.IsInterface);
-
+            var verbs = AssemblyLoader.GetAssemblies<IVerbDefinition>(new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory))
+                .GetTypes<IVerbDefinition>().Where(q => !q.IsInterface).ToList();
+            
             verbs.ForEach(q =>
             {
                 Container.RegisterType(typeof(IVerbDefinition), q, q.AssemblyQualifiedName, new ExternallyControlledLifetimeManager());
@@ -27,6 +31,9 @@ namespace DigitalParadox.Parsing.CommandLineParser
             Container.RegisterType<IEnumerable<IVerbDefinition>>(
                 new InjectionFactory(inject => Container.ResolveAll<IVerbDefinition>()));
 
+            Container.RegisterInstance(new Parser(settings => Container.Resolve<ParserSettings>()));
+
+            ParserSettings.ObjectFactory = new UnityObjectFactory(Container);
 
             Container.RegisterType<IVerbResolver, VerbResolver>();
 
@@ -50,17 +57,6 @@ namespace DigitalParadox.Parsing.CommandLineParser
                 });
         }
 
-        public class UnityObjectFactory : IObjectFactory
-        {
-            public UnityObjectFactory(IUnityContainer container)
-            {
-                _container = container;
-            }
-
-            private readonly IUnityContainer _container;
-            public T Resolve<T>() => _container.Resolve<T>();
-            public object Resolve(Type type) => _container.Resolve(type);
-        }
 
     }
 }
