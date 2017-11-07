@@ -6,6 +6,8 @@
     <Authors>Chris McGrath</Authors>
     <Company>Digital Paradox</Company>
     <Description>Base Interfaces for Parser Libraries</Description>
+    <Version>1.0.0.0</Version>
+    <PackageVersion>1.0.0.0</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
